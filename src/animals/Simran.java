@@ -3,11 +3,9 @@ package animals;
 import javax.crypto.interfaces.DHPrivateKey;
 
 public class Simran extends Animal{
-    private String nickName;
-    private Class compatibleWith[] = {Seal.class};
-    //private Class compatibleWith;
 
     public Simran(){
+        compatibleAnimals = new Animal[]{new Seal()};
         nickName = "cunt";
     }
 
@@ -19,10 +17,13 @@ public class Simran extends Animal{
     @Override
     public boolean isCompatibleWith(Animal animal) {
         int i = 0;
-        boolean compatible;
-        for (Class c : compatibleWith) {
-            compatible = animal instanceof c;
+        while(!(animal.getClass().equals(compatibleAnimals[i].getClass()))){
+            i++;
+            if (i > compatibleAnimals.length){
+                return false;
+            }
         }
+        return true;
     }
 
 }

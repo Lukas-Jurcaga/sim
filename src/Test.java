@@ -7,7 +7,5 @@ public class Test {
         Seal johon = new Seal();
         System.out.println(sim.getNickname());
         System.out.println("Is simran compatible with a seal? " + sim.isCompatibleWith(johon));
-        sim.noise();
-        johon.noise();
     }
 }

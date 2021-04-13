@@ -7,6 +7,8 @@ package animals;
  */
 public abstract class Animal
 {
+	protected String nickName;
+	protected Animal[] compatibleAnimals;
 	/**
 	 * @return Returns this animal's given name.
 	 */
