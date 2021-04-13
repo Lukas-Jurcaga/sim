@@ -1,26 +1,40 @@
 package zoo;
 
 import animals.Animal;
+import areas.Entrance;
 import areas.IArea;
 import dataStructures.ICashCount;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Zoo implements IZoo{
+    private HashMap<Integer, IArea> areas;
+    private int numAreas;
+
+    public Zoo(){
+        numAreas = 0;
+        areas = new HashMap<>();
+        areas.put(0, new Entrance());
+        numAreas++;
+    }
 
     @Override
     public int addArea(IArea area) {
-        return 0;
+        int id = numAreas;
+        areas.put(id, area);
+        numAreas++;
+        return id;
     }
 
     @Override
     public void removeArea(int areaId) {
-
+        areas.remove(areaId);
     }
 
     @Override
     public IArea getArea(int areaId) {
-        return null;
+        return areas.get(areaId);
     }
 
     @Override
