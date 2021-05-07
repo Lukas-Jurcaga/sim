@@ -1,10 +1,13 @@
 package animals;
 
 public class Shark extends Animal{
+    private final static Animal[] DEFAULT_COMPATIBLE_ANIMALS = new Animal[]{new Starfish()};
+    private String nickName;
+    private Animal[] compatibleAnimals;
 
     public Shark(){
-        super.compatibleAnimals = new Animal[]{new Starfish()};
-        nickName = "SHark";
+        compatibleAnimals = DEFAULT_COMPATIBLE_ANIMALS;
+        nickName = "Shark";
     }
 
     @Override
@@ -14,10 +17,16 @@ public class Shark extends Animal{
 
     @Override
     public boolean isCompatibleWith(Animal animal) {
-        int i = 0;
-        while(animal.getClass().equals(compatibleAnimals[i].getClass())){
-            if (i == compatibleAnimals.length - 1){
+        if(!(animal.getClass().equals(this.getClass()))){
+            if (compatibleAnimals.length <= 0){
                 return false;
+            }
+            int i = 0;
+            while(!(animal.getClass().equals(compatibleAnimals[i].getClass()))){
+                i++;
+                if (i >= compatibleAnimals.length){
+                    return false;
+                }
             }
         }
         return true;

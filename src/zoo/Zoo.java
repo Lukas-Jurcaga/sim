@@ -2,8 +2,10 @@ package zoo;
 
 import animals.Animal;
 import areas.Entrance;
+import areas.Habitat;
 import areas.IArea;
 import dataStructures.ICashCount;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +41,25 @@ public class Zoo implements IZoo{
 
     @Override
     public byte addAnimal(int areaId, Animal animal) {
-        return 0;
+        if (!(isArea(areaId))){
+            return Codes.NOT_A_HABITAT;
+        }
+        if (!(isHabitat(areaId))){
+            return Codes.NOT_A_HABITAT;
+        }
+
+        Habitat habitat = (Habitat) areas.get(areaId);
+
+        return habitat.addAnimal(animal);
+    }
+
+    public boolean isArea(int areaId){
+        return areas.get(areaId) != null;
+
+    }
+
+    public boolean isHabitat(int areaId){
+        return areas.get(areaId) instanceof Habitat;
     }
 
     @Override

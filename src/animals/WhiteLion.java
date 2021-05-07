@@ -1,13 +1,13 @@
 package animals;
 
-public class Starfish extends Animal{
-    private final static Animal[] DEFAULT_COMPATIBLE_ANIMALS = new Animal[]{new Shark(), new Simran(), new Seal()};
+public class WhiteLion extends Animal{
+    private final static Animal[] DEFAULT_COMPATIBLE_ANIMALS = new Animal[]{};
     private String nickName;
     private Animal[] compatibleAnimals;
 
-    public Starfish(){
+    public WhiteLion(){
         compatibleAnimals = DEFAULT_COMPATIBLE_ANIMALS;
-        nickName = "Starfish";
+        nickName = "Lion";
     }
 
     @Override
